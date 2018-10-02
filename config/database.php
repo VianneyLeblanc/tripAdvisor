@@ -56,14 +56,14 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'tripadvisor'),
+            'database' => env('DB_DATABASE', 'g233'),
             'username' => env('DB_USERNAME', 'g233'),
             'password' => env('DB_PASSWORD', 'KruDnXDP'),
             'charset' => 'utf8',
             'prefix' => '',
-            'schema' => 'tripaddb',
+            'schema' => 'tripadvisorg233',
             'sslmode' => 'prefer',
         ],
 
