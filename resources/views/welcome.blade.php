@@ -9,6 +9,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        <!-- FontAwsome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
         <!-- Styles -->
         <style>
@@ -64,6 +66,22 @@
             }
         </style>
     </head>
+
+<header>
+	<img src="https://static.tacdn.com/img2/langs/fr/branding/rebrand/TA_logo_primary.svg">
+	<div class="titles">
+                    TripAdvisor
+                </div>
+                <nav>
+                	<a><div>Hôtels</div></a>
+                	<a><div>Location vacances</div></a>
+                	<a><div>Vols</div></a>
+                	<a><div>Restaurants</div></a>
+                	<a><div>Activités</div></a>
+                	<a><i class="fas fa-bars"></i></a>
+                </nav>
+</header>
+
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
@@ -76,12 +94,6 @@
                     @endauth
                 </div>
             @endif
-
-            <div class="content">
-                <div class="titles">
-                    Laravel
-                </div>
-            </div>
         </div>
     </body>
 </html>
