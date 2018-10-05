@@ -64,30 +64,43 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            #flag{
+            	display: flex;
+            	justify-content: space-between;
+            }
+            #dashboard{
+			    text-align: right;
+			    margin: auto;
+			}
+			nav{
+				display: flex;
+				margin: auto;
+			}
+			nav > a{
+				margin: 5px;
+			}
         </style>
     </head>
 
 <header>
-	<img src="https://static.tacdn.com/img2/langs/fr/branding/rebrand/TA_logo_primary.svg">
-	<div id="dashboard">
-		<i class="fas fa-suitcase"></i>
-		<i class="far fa-comment-alt"></i>
-		<i class="fas fa-user-alt"></i>
-		<button id="inscription" type="button">S'INSCRIRE</button>
-		<i class="fas fa-search"></i>
-
+	<div id="flag">
+	<img src="https://static.tacdn.com/img2/langs/fr/branding/rebrand/TA_logo_primary.svg" height="50%" width="50%">
+		<div id="dashboard">
+			<i class="fas fa-suitcase"></i>
+			<i class="far fa-comment-alt"></i>
+			<i class="fas fa-user-alt"></i>
+			<button id="inscription" type="button">S'INSCRIRE</button>
+			<i class="fas fa-search"></i>
+		</div>
 	</div>
-	<div class="titles">
-                    TripAdvisor
-                </div>
-                <nav>
-                	<a><div>Hôtels</div></a>
-                	<a><div>Location vacances</div></a>
-                	<a><div>Vols</div></a>
-                	<a><div>Restaurants</div></a>
-                	<a><div>Activités</div></a>
-                	<a><i class="fas fa-bars"></i></a>
-                </nav>
+    <nav>
+    	<a><div>Hôtels</div></a>
+    	<a><div>Location vacances</div></a>
+    	<a><div>Vols</div></a>
+    	<a><div>Restaurants</div></a>
+    	<a><div>Activités</div></a>
+    	<a><i class="fas fa-bars"></i></a>
+    </nav>
 </header>
 
     <body>
