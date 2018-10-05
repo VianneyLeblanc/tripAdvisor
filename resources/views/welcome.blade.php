@@ -69,6 +69,14 @@
 
 <header>
 	<img src="https://static.tacdn.com/img2/langs/fr/branding/rebrand/TA_logo_primary.svg">
+	<div id="dashboard">
+		<i class="fas fa-suitcase"></i>
+		<i class="far fa-comment-alt"></i>
+		<i class="fas fa-user-alt"></i>
+		<button id="inscription" type="button">S'INSCRIRE</button>
+		<i class="fas fa-search"></i>
+
+	</div>
 	<div class="titles">
                     TripAdvisor
                 </div>
