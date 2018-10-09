@@ -5,10 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>TripAdvisor</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        <!-- FontAwsome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
         <!-- Styles -->
         <style>
@@ -62,8 +64,62 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            #flag{
+            	display: flex;
+            	justify-content: space-between;
+            }
+            #dashboard{
+			    text-align: right;
+			    margin: auto;
+			}
+			nav{
+				display: flex;
+				margin: auto;
+				justify-content: space-between;
+			}
+			nav > a{
+				margin: 5px;
+				text-align: right;
+			}
+			a{
+				text-decoration: none;
+				color: black;
+				border-radius: 15px;
+			}
+			a:hover, i:hover{
+				color: #4bc16b;
+			}
+			button{
+				background-color: #4bc16b;
+				border-radius: 5px;
+			}
+			#loc{
+				color: #4bc16b;
+			}
         </style>
     </head>
+
+<header>
+	<div id="flag">
+	<img src="https://static.tacdn.com/img2/langs/fr/branding/rebrand/TA_logo_primary.svg" height="50%" width="50%">
+		<div id="dashboard">
+			<i class="fas fa-suitcase"></i>
+			<i class="far fa-comment-alt"></i>
+			<i class="fas fa-user-alt"></i>
+			<button id="inscription" type="button">S'INSCRIRE</button>
+			<i class="fas fa-search"></i>
+		</div>
+	</div>
+    <nav>
+    	<a id="hotels" href="/hotels"><div id="hotels">Hôtels</div></a>
+    	<a id="loc" href="/loc"><div id="loc">Location vacances</div></a>
+    	<a id="vols" href="/vols"><div id="vols">Vols</div></a>
+    	<a id="restaurants" href="/restaurants"><div id="restaurants">Restaurants</div></a>
+    	<a id="activites" href="/activites"><div id="activites">Activités</div></a>
+    	<a id="menu" href="/menu"><i class="fas fa-bars"></i></a>
+    </nav>
+</header>
+
     <body>
         <div class="flex-center position-ref full-height">
             <?php if(Route::has('login')): ?>
@@ -76,21 +132,6 @@
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
         </div>
     </body>
 </html>
