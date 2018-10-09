@@ -340,8 +340,15 @@ class ComposerStaticInit58e9451d78d90386d6bc8c650d0f9283
     );
 
     public static $classMap = array (
+
+        'App\\Abonne' => __DIR__ . '/../..' . '/app/Abonne.php',
+        'App\\Avis' => __DIR__ . '/../..' . '/app/Avis.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Equipement' => __DIR__ . '/../..' . '/app/Equipement.php',
+        'App\\EquipementLocation' => __DIR__ . '/../..' . '/app/EquipementLocation.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Gerant' => __DIR__ . '/../..' . '/app/Gerant.php',
+
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -356,13 +363,33 @@ class ComposerStaticInit58e9451d78d90386d6bc8c650d0f9283
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+
+        'App\\Langue' => __DIR__ . '/../..' . '/app/Langue.php',
+        'App\\LangueGerant' => __DIR__ . '/../..' . '/app/LangueGerant.php',
+        'App\\Location' => __DIR__ . '/../..' . '/app/Location.php',
+        'App\\PaiementGerant' => __DIR__ . '/../..' . '/app/PaiementGerant.php',
+        'App\\Pays' => __DIR__ . '/../..' . '/app/Pays.php',
+        'App\\PeriodeTarif' => __DIR__ . '/../..' . '/app/PeriodeTarif.php',
+        'App\\PeriodeVisite' => __DIR__ . '/../..' . '/app/PeriodeVisite.php',
+        'App\\Photo' => __DIR__ . '/../..' . '/app/Photo.php',
+        'App\\PlanningLocation' => __DIR__ . '/../..' . '/app/PlanningLocation.php',
+
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\ComposerServiceProvider' => __DIR__ . '/../..' . '/app/Providers/ComposerServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+
+        'App\\QuestionLocation' => __DIR__ . '/../..' . '/app/QuestionLocation.php',
+        'App\\ReponseQuestionLoc' => __DIR__ . '/../..' . '/app/ReponseQuestionLoc.php',
+        'App\\TarifLocation' => __DIR__ . '/../..' . '/app/TarifLocation.php',
+        'App\\TypePaiement' => __DIR__ . '/../..' . '/app/TypePaiement.php',
+        'App\\TypeSejour' => __DIR__ . '/../..' . '/app/TypeSejour.php',
+        'App\\TypeVisiteLocation' => __DIR__ . '/../..' . '/app/TypeVisiteLocation.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\Utilite' => __DIR__ . '/../..' . '/app/Utilite.php',
+
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',

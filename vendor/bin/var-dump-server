@@ -1,3 +1,4 @@
+
 #!/usr/bin/env php
 <?php
 
@@ -61,3 +62,4 @@ $app->add($command = new ServerDumpCommand(new DumpServer($host, $logger)))
     ->setDefaultCommand($command->getName(), true)
     ->run($input, $output)
 ;
+

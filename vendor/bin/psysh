@@ -1,3 +1,4 @@
+
 #!/usr/bin/env php
 <?php
 
@@ -136,3 +137,4 @@ if (!function_exists('Psy\bin')) {
 
 // And go!
 call_user_func(Psy\bin());
+

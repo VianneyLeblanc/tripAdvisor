@@ -6,8 +6,15 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+
+    'App\\Abonne' => $baseDir . '/app/Abonne.php',
+    'App\\Avis' => $baseDir . '/app/Avis.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Equipement' => $baseDir . '/app/Equipement.php',
+    'App\\EquipementLocation' => $baseDir . '/app/EquipementLocation.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Gerant' => $baseDir . '/app/Gerant.php',
+
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -22,13 +29,33 @@ return array(
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+
+    'App\\Langue' => $baseDir . '/app/Langue.php',
+    'App\\LangueGerant' => $baseDir . '/app/LangueGerant.php',
+    'App\\Location' => $baseDir . '/app/Location.php',
+    'App\\PaiementGerant' => $baseDir . '/app/PaiementGerant.php',
+    'App\\Pays' => $baseDir . '/app/Pays.php',
+    'App\\PeriodeTarif' => $baseDir . '/app/PeriodeTarif.php',
+    'App\\PeriodeVisite' => $baseDir . '/app/PeriodeVisite.php',
+    'App\\Photo' => $baseDir . '/app/Photo.php',
+    'App\\PlanningLocation' => $baseDir . '/app/PlanningLocation.php',
+
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\ComposerServiceProvider' => $baseDir . '/app/Providers/ComposerServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+
+    'App\\QuestionLocation' => $baseDir . '/app/QuestionLocation.php',
+    'App\\ReponseQuestionLoc' => $baseDir . '/app/ReponseQuestionLoc.php',
+    'App\\TarifLocation' => $baseDir . '/app/TarifLocation.php',
+    'App\\TypePaiement' => $baseDir . '/app/TypePaiement.php',
+    'App\\TypeSejour' => $baseDir . '/app/TypeSejour.php',
+    'App\\TypeVisiteLocation' => $baseDir . '/app/TypeVisiteLocation.php',
     'App\\User' => $baseDir . '/app/User.php',
+    'App\\Utilite' => $baseDir . '/app/Utilite.php',
+
     'BeyondCode\\DumpServer\\DumpServerCommand' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
     'BeyondCode\\DumpServer\\DumpServerServiceProvider' => $vendorDir . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
     'BeyondCode\\DumpServer\\Dumper' => $vendorDir . '/beyondcode/laravel-dump-server/src/Dumper.php',
