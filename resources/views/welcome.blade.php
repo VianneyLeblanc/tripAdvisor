@@ -77,6 +77,10 @@
 				margin: auto;
 				justify-content: space-between;
 			}
+            li{
+                list-style: none;
+                display: inline-block;
+            }
 			nav > a{
 				margin: 5px;
 				text-align: right;
@@ -106,7 +110,15 @@
 			<i class="fas fa-suitcase"></i>
 			<i class="far fa-comment-alt"></i>
 			<i class="fas fa-user-alt"></i>
-			<button id="inscription" type="button">S'INSCRIRE</button>
+            @if (Route::has('login'))
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('register') }}">Register</a>
+                    @endauth
+            @endif
+        </div>
 			<i class="fas fa-search"></i>
 		</div>
 	</div>
@@ -121,17 +133,9 @@
 </header>
 
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-        </div>
+        
+        <main class="py-4">
+            @yield('content')
+        </main>
     </body>
 </html>
