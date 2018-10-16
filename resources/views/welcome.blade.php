@@ -75,9 +75,30 @@
 			nav{
 				display: flex;
 				margin: auto;
+				justify-content: space-between;
 			}
+            li{
+                list-style: none;
+                display: inline-block;
+            }
 			nav > a{
 				margin: 5px;
+				text-align: right;
+			}
+			a{
+				text-decoration: none;
+				color: black;
+				border-radius: 15px;
+			}
+			a:hover, i:hover{
+				color: #4bc16b;
+			}
+			button{
+				background-color: #4bc16b;
+				border-radius: 5px;
+			}
+			#loc{
+				color: #4bc16b;
 			}
         </style>
     </head>
@@ -89,32 +110,32 @@
 			<i class="fas fa-suitcase"></i>
 			<i class="far fa-comment-alt"></i>
 			<i class="fas fa-user-alt"></i>
-			<button id="inscription" type="button">S'INSCRIRE</button>
-			<i class="fas fa-search"></i>
-		</div>
-	</div>
-    <nav>
-    	<a><div>Hôtels</div></a>
-    	<a><div>Location vacances</div></a>
-    	<a><div>Vols</div></a>
-    	<a><div>Restaurants</div></a>
-    	<a><div>Activités</div></a>
-    	<a><i class="fas fa-bars"></i></a>
-    </nav>
-</header>
-
-    <body>
-        <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
-                <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
                     @endauth
-                </div>
             @endif
         </div>
+			<i class="fas fa-search"></i>
+		</div>
+	</div>
+    <nav>
+    	<a id="hotels" href="/hotels"><div id="hotels">Hôtels</div></a>
+    	<a id="loc" href="/loc"><div id="loc">Location vacances</div></a>
+    	<a id="vols" href="/vols"><div id="vols">Vols</div></a>
+    	<a id="restaurants" href="/restaurants"><div id="restaurants">Restaurants</div></a>
+    	<a id="activites" href="/activites"><div id="activites">Activités</div></a>
+    	<a id="menu" href="/menu"><i class="fas fa-bars"></i></a>
+    </nav>
+</header>
+
+    <body>
+        
+        <main class="py-4">
+            @yield('content')
+        </main>
     </body>
 </html>
