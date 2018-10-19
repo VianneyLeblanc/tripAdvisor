@@ -77,6 +77,10 @@
 				margin: auto;
 				justify-content: space-between;
 			}
+            li{
+                list-style: none;
+                display: inline-block;
+            }
 			nav > a{
 				margin: 5px;
 				text-align: right;
@@ -106,7 +110,15 @@
 			<i class="fas fa-suitcase"></i>
 			<i class="far fa-comment-alt"></i>
 			<i class="fas fa-user-alt"></i>
-			<button id="inscription" type="button">S'INSCRIRE</button>
+            <?php if(Route::has('login')): ?>
+                    <?php if(auth()->guard()->check()): ?>
+                        <a href="<?php echo e(url('/home')); ?>">Home</a>
+                    <?php else: ?>
+                        <a href="<?php echo e(route('login')); ?>">Login</a>
+                        <a href="<?php echo e(route('register')); ?>">Register</a>
+                    <?php endif; ?>
+            <?php endif; ?>
+        </div>
 			<i class="fas fa-search"></i>
 		</div>
 	</div>
@@ -121,17 +133,9 @@
 </header>
 
     <body>
-        <div class="flex-center position-ref full-height">
-            <?php if(Route::has('login')): ?>
-                <div class="top-right links">
-                    <?php if(auth()->guard()->check()): ?>
-                        <a href="<?php echo e(url('/home')); ?>">Home</a>
-                    <?php else: ?>
-                        <a href="<?php echo e(route('login')); ?>">Login</a>
-                        <a href="<?php echo e(route('register')); ?>">Register</a>
-                    <?php endif; ?>
-                </div>
-            <?php endif; ?>
-        </div>
+        
+        <main class="py-4">
+            <?php echo $__env->yieldContent('content'); ?>
+        </main>
     </body>
 </html>

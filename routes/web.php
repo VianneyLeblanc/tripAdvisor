@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 
+Route::get('/location/search', 'LocationController@search');
+Route::post('/location/searchResult', 'LocationController@searchResult');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
