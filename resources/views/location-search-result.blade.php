@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@extends('header')
 @section('content')
     <h2>Résultat de la recherche</h2>
     @foreach( $location as $loc)

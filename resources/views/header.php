@@ -1,4 +1,3 @@
-@section('header')
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -132,11 +131,11 @@
     	<a id="menu" href="/menu"><i class="fas fa-bars"></i></a>
     </nav>
 </header>
-@endsection
+
     <body>
         
         <main class="py-4">
+            @yield('content')
         </main>
     </body>
 </html>
-

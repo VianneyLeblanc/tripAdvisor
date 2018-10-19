@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@extend('header')
 @section('content')
 
     <form method="post" action="{{ url('/location/searchResult') }}">
