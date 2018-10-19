@@ -1,5 +1,7 @@
-@section('header')
+@extend('layout')
+
 <!doctype html>
+@section('header')
 <html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
@@ -111,14 +113,7 @@
 			<i class="fas fa-suitcase"></i>
 			<i class="far fa-comment-alt"></i>
 			<i class="fas fa-user-alt"></i>
-            @if (Route::has('login'))
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-            @endif
+            @extend('autent')
         </div>
 			<i class="fas fa-search"></i>
 		</div>

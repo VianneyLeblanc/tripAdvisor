@@ -1,7 +1,3 @@
-@extends('layouts.app')
-@extend('header')
-@section('content')
-
     <form method="post" action="{{ url('/location/searchResult') }}">
   <input type="hidden" name="_token" value="{{ csrf_token() }}" >
   <p>
@@ -13,5 +9,3 @@
   	<input type="submit" value="rechercher">
   </p>
 </form>
-
-@endsection
