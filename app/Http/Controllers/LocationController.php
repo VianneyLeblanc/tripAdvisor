@@ -7,16 +7,16 @@ use App\Location;
 
 class LocationController extends Controller
 {
-    public function search()
+
+    public function home()
     {
-    	return view ('location-search', []);
+        return view ('welcome',  ["location" => Location::All()]);
     }
 
     public function searchResult(Request $request)
     {
-    	$AllLocation = Location::All();
     	$location = [];
-    	foreach ($AllLocation as $key => $value) 
+    	foreach (Location::All() as $key => $value) 
     		{
 
     			if (levenshtein($value->loc_ville, $request->input('ville')) < 10 )
