@@ -370,7 +370,6 @@ class ComposerStaticInit58e9451d78d90386d6bc8c650d0f9283
         'App\\Pays' => __DIR__ . '/../..' . '/app/Pays.php',
         'App\\PeriodeTarif' => __DIR__ . '/../..' . '/app/PeriodeTarif.php',
         'App\\PeriodeVisite' => __DIR__ . '/../..' . '/app/PeriodeVisite.php',
-        'App\\Photo' => __DIR__ . '/../..' . '/app/Photo.php',
         'App\\PlanningLocation' => __DIR__ . '/../..' . '/app/PlanningLocation.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

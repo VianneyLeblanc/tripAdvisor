@@ -26,4 +26,9 @@ class LocationController extends Controller
     		}
     	return view ('location-search-result',  ["location" => $location]);
     }
+
+    public function detail(int $id)
+    {
+        return view ( 'detail', ["location" =>Location::Find($id)]);
+    }
 }

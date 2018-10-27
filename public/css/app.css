@@ -10493,7 +10493,7 @@ body {
 }
 
 .container {
-  margin-top: 20%;
+  margin-top: 15px;
 }
 
 .full-height {
@@ -10611,7 +10611,7 @@ i:hover {
 }
 
 header {
-  position: fixed;
+  position: sticky;
   top: 0px;
   width: 100%;
   background-color: white;

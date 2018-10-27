@@ -36,7 +36,6 @@ return array(
     'App\\Pays' => $baseDir . '/app/Pays.php',
     'App\\PeriodeTarif' => $baseDir . '/app/PeriodeTarif.php',
     'App\\PeriodeVisite' => $baseDir . '/app/PeriodeVisite.php',
-    'App\\Photo' => $baseDir . '/app/Photo.php',
     'App\\PlanningLocation' => $baseDir . '/app/PlanningLocation.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

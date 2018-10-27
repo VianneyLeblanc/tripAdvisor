@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Abonne extends Model
 {
     protected $table = 't_e_abonne_abo';
+    public $primaryKey = 'abo_id';
 }
