@@ -78,7 +78,8 @@
 	<h1>Services</h1>
 	@foreach($location->toLstEqui as $equi)
 		<i class="fas fa-check"></i>
-		<label>{{$equi->equ_libelle}}({{$equi->equ_nombre}})</label>
+		<label>{{$equi->equ_libelle}}({{$equi->pivot->eql_nombre}})</label>
+
 	@endforeach
 </div>
 @endsection
