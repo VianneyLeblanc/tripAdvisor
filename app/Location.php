@@ -22,7 +22,7 @@ class Location extends Model
 
     public function toLstEqui()
     {
-        return $this->belongsToMany(Equipement::class,'t_j_equipementlocation_eql', 'loc_id', 'equ_id','equ_libelle');//
+        return $this->belongsToMany(Equipement::class, 't_j_equipementlocation_eql', 'loc_id', 'equ_id')->select('equ_libelle','eql_nombre');//
     }
     
 }

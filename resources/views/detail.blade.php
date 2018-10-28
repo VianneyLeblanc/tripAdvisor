@@ -8,8 +8,8 @@
 	<a href="">Carte</a>
 </nav>
 <img src="{{$location->loc_img}}">
-<div>
-<h1 id="Vue_ensemble">Vue d'ensemble</h1>
+<div id="Vue_ensemble" class="major">
+<h1>Vue d'ensemble</h1>
 <label>Logement à louer - {{$location->loc_nbchambres}} chambre, {{$location->loc_nbsallesbain}} salles de bains, {{$location->loc_nboccupants}} couchages</label>
 <p>
 	<label>{{$location->loc_ville}}</label>
@@ -18,8 +18,7 @@
 </p>
 <a href="#"><i class="far fa-envelope"></i>Envoyer à un ami</a>
 <p>{{$location->loc_detail}}</p>
-</div>
-<div>
+
 	<h1>À propos du propriétaire</h1>
 	<hr>
 	<div>
@@ -32,7 +31,7 @@
 		{{substr(preg_split("/ /",$location->toGerant->grt_nom)[1],0, 1)}}
 	</strong></p>
 		<p>
-			<p>Taux de réponse : {{$location->toGerant->grt_tauxreponse}}</p>
+			<p>Taux de réponse : {{$location->toGerant->grt_tauxreponse}}%</p>
 			<p>Délai de réponse : {{$location->toGerant->grt_delaireponse}}</p>
 			<p>Inscrit depuis : {{$location->toGerant->grt_dateinscription}}</p>
 		</p>
@@ -42,11 +41,11 @@
 		<input type="submit" name="submit" value="Envoyer un message">
 	</form>
 </div>
-<div>
-	<h1 id="Avis">Avis</h1>
+<div id="Avis" class="major">
+	<h1 >Avis</h1>
 	<hr>
 	@foreach($location->avis as $avis)
-	<article style="display: inline-flex;">
+	<article style="display: inline-flex; margin: 5px;">
 		<div style="margin:10px;text-align: center;display: block;">
 			<img src="https://vignette.wikia.nocookie.net/bungostraydogs/images/1/1e/Profile-icon-9.png" style="
     border-radius: 50%;
@@ -74,12 +73,39 @@
 	</article>
 	@endforeach
 </div>
-<div>
+<div id="Services" class="major">
 	<h1>Services</h1>
-	@foreach($location->toLstEqui as $equi)
-		<i class="fas fa-check"></i>
-		<label>{{$equi->equ_libelle}}({{$equi->pivot->eql_nombre}})</label>
-
-	@endforeach
+	<div style="display: inline-flex;">
+		<?php $nb = count($location->toLstEqui); ?>
+	@for($i = 0; $i<$nb; $i++)
+		@if($i%($nb/3) == 0)
+		<ul style="    display: block;">
+		@endif
+		<li style="display: list-item;"><i class="fas fa-check"></i>
+		<label>{{$location->toLstEqui[$i]->equ_libelle}}@if($location->toLstEqui[$i]->eql_nombre>1)
+			({{$location->toLstEqui[$i]->eql_nombre}})
+			@endif
+		</label></li>
+		@if($i%($nb/3) == (($nb/3)-1)%($nb/3))
+		</ul>
+		@endif
+	@endfor
+	</div>
+</div>
+<div id="Regles" class="major">
+	<h1>Règles de l'établissement</h1>
+	
+</div>
+<div id="Toilettes" class="major">
+	<h1>Toilettes</h1>
+	
+</div>
+<div id="Chambres" class="major">
+	<h1>Chambres</h1>
+	
+</div>
+<div id="Disponibilité" class="major">
+	<h1>Disponibilité</h1>
+	<?php echo $calendrier; ?>
 </div>
 @endsection

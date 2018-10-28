@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Location;
+use App\Calendar;
 
 class LocationController extends Controller
 {
@@ -29,6 +30,6 @@ class LocationController extends Controller
 
     public function detail(int $id)
     {
-        return view ( 'detail', ["location" =>Location::Find($id)]);
+        return view ( 'detail', ["location" =>Location::Find($id), "calendrier" => Calendar::calendrier(6)]);
     }
 }

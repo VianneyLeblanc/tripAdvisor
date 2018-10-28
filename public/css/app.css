@@ -10638,3 +10638,16 @@ form {
   margin: 10px;
 }
 
+.major{
+    box-shadow: 1px 1px 10px #555;
+    margin: 10px;
+    padding: 5px;
+}
+.calendrier {
+    display: inline-block;
+    margin: 10px;
+}
+.dark{
+  background-color: #b3b3b3;
+  border-radius: 5px;
+}
