@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+<div style="display: flex;">
+<div>
 <nav>
 	<a href="#Vue_ensemble">Vue d'ensemble</a>
 	<a href="#Avis">Avis</a>
@@ -7,8 +9,9 @@
 	<a href="">Disponibilité</a>
 	<a href="">Carte</a>
 </nav>
-<img src="{{$location->loc_img}}">
+
 <div id="Vue_ensemble" class="major">
+<img src="{{$location->loc_img}}">
 <h1>Vue d'ensemble</h1>
 <label>Logement à louer - {{$location->loc_nbchambres}} chambre, {{$location->loc_nbsallesbain}} salles de bains, {{$location->loc_nboccupants}} couchages</label>
 <p>
@@ -33,7 +36,7 @@
 		<p>
 			<p>Taux de réponse : {{$location->toGerant->grt_tauxreponse}}%</p>
 			<p>Délai de réponse : {{$location->toGerant->grt_delaireponse}}</p>
-			<p>Inscrit depuis : {{$location->toGerant->grt_dateinscription}}</p>
+			<p>Inscrit depuis : {{(new \DateTime($location->toGerant->grt_dateinscription))->format('d/m/Y')}}</p>
 		</p>
 	</div>
 	<form>
@@ -64,7 +67,7 @@
 			@for($i = 0; $i< 5- $avis->avi_noteglobale; $i++)
 				<i class="far fa-star"></i>
 			@endfor
-			<label>Avis publié le {{$avis->avi_date}}</label>
+			<label>Avis publié le {{(new \DateTime($avis->avi_date))->format('d/m/Y')}}</label>
 			</p>
 			<p>{{$avis->avi_titre}}</p>
 			<p>{{$avis->avi_detail}}</p>
@@ -76,14 +79,15 @@
 <div id="Services" class="major">
 	<h1>Services</h1>
 	<div style="display: inline-flex;">
-		<?php $nb = count($location->toLstEqui); ?>
+		<?php $nb = count($location->toLstEqui);
+		$listeEqui =  $location->toLstEqui ; ?>
 	@for($i = 0; $i<$nb; $i++)
 		@if($i%($nb/3) == 0)
 		<ul style="    display: block;">
 		@endif
 		<li style="display: list-item;"><i class="fas fa-check"></i>
-		<label>{{$location->toLstEqui[$i]->equ_libelle}}@if($location->toLstEqui[$i]->eql_nombre>1)
-			({{$location->toLstEqui[$i]->eql_nombre}})
+		<label>{{$listeEqui[$i]->equ_libelle}}@if($listeEqui[$i]->eql_nombre>1)
+			({{$listeEqui[$i]->eql_nombre}})
 			@endif
 		</label></li>
 		@if($i%($nb/3) == (($nb/3)-1)%($nb/3))
@@ -107,5 +111,38 @@
 <div id="Disponibilité" class="major">
 	<h1>Disponibilité</h1>
 	<?php echo $calendrier; ?>
+</div>
+</div>
+
+<div class="major aside">
+    <div>
+	<form >
+		<div id="calendarSelector1" class="hidden">
+	    	<span id="previous" class="button" value="<" onclick="previousMonth('calendarSelector1')" data-nb="0">&#160 &lt &#160</span>
+	    	<span class="button" id="next" value=">" onclick="nextMonth('calendarSelector1')" data-nb="1">&#160 &gt &#160</span>
+    	<?php echo \App\Calendar::calendrier(6, $diponibilites) ?>
+    </div>
+		<div class="inputDate">
+			<input placeholder="Arriver" type="text" name="dateArrivee" onclick="showCalendarArrive()" value="">
+			<i class="fas fa-calendar-alt internal" onclick="showCalendarArrive()"></i>
+		</div>
+		<div class="inputDate">
+			<input placeholder="Départ" type="text" name="dateDepart" onclick="showCalendarDepart()" value="">
+			<i class="fas fa-calendar-alt internal" onclick="showCalendarDepart()"></i>
+		</div>
+		<div id="calendarSelector2" class="hidden">
+	    	<span id="previous" class="button" value="<" onclick="previousMonth('calendarSelector2')" data-nb="0">&#160 &lt &#160</span>
+	    	<span class="button" id="next" value=">" onclick="nextMonth('calendarSelector2')" data-nb="1">&#160 &gt &#160</span>
+    	<?php echo \App\Calendar::calendrier(6, $diponibilites) ?>
+    </div>
+		<input style="margin: 1px;" type="number" name="nbAdultes" min="1" max="99">
+		<input style="margin: 1px;" type="number" name="nbEnfants" min="0" max="99">
+		<input style="margin: 1px;" type="submit" name="submit" value="Réservez">
+	</form>
+	<form>
+		<input type="submit" name="submit" value="Envoyer un message">
+	</form>
+	</div>
+</div>
 </div>
 @endsection

@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class PlanningLocation extends Model
 {
-    protected $table = 't_j_planninglocation_plo';
+    public $table = 't_j_planninglocation_plo';
+    public $primaryKey = 'loc_id';
 }

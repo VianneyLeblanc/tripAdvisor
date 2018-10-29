@@ -410,6 +410,7 @@ h2,
 h3,
 .h3 {
   font-size: 1.575rem;
+  text-align: center;
 }
 
 h4,
@@ -10623,7 +10624,6 @@ header {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  border: solid 2px;
 }
 
 .location > div > div {
@@ -10647,7 +10647,89 @@ form {
     display: inline-block;
     margin: 10px;
 }
+.calendrier > table{
+    display: block;
+    margin: 0px auto;
+    width: 145px;
+}
 .dark{
   background-color: #b3b3b3;
   border-radius: 5px;
+}
+.red{
+    background-color: #ff8c8c;
+  border-radius: 5px; 
+}
+.green{
+  background-color: #9cff93;
+  border-radius: 5px;
+}
+.green:hover{
+  cursor: pointer;
+}
+.hidden > div{
+    display: none;
+    position: sticky;
+    top: 13%;
+    right: 0px;
+    margin-top: 80px;
+    background-color: white;
+}
+.hidden{
+ display: none;
+    position: sticky;
+    top: 13%;
+    right: 0px;
+    margin-top: 80px;
+    background-color: white; 
+}
+.show{
+ display: contents;
+    position: sticky;
+    top: 13%;
+    right: 0px;
+    margin-top: 80px;
+    background-color: white; 
+}
+.show > div{
+    display: none;
+    position: sticky;
+    top: 13%;
+    right: 0px;
+    margin-top: 80px;
+    background-color: white;
+}
+.hidden > span{
+  background-color: #9cff93;
+ border-radius: 5px; 
+}
+.hidden > span:hover{
+  cursor: pointer;
+}
+.button{
+  background-color: #35ff56;
+  border-radius: 5px;
+}
+.button:hover{
+  cursor: pointer;
+}
+.aside{
+  background-color: white;   display: table;
+    position: sticky;
+    top: 15%;
+    right: 0px;
+    margin-top: 100px;
+}
+#previous{
+  float: left;
+}
+#next{
+  float: right;
+}
+.inputDate{
+  margin: 1px;
+  display: flex;
+}
+.internal{
+      margin: 6px -20px;
 }

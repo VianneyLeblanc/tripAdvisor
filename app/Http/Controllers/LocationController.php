@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Location;
 use App\Calendar;
+use App\PlanningLocation;
 
 class LocationController extends Controller
 {
@@ -30,6 +31,20 @@ class LocationController extends Controller
 
     public function detail(int $id)
     {
-        return view ( 'detail', ["location" =>Location::Find($id), "calendrier" => Calendar::calendrier(6)]);
+    	$location = Location::Find($id);
+    	$disponibilite = PlanningLocation::All();
+    	$dispo = [];
+    	foreach ($disponibilite as $key => $planning) {
+    		if($planning->loc_id == $id){
+	    		if ($planning->plo_disponibilite) {
+	    			$dispo['ouvert'][] = $planning->plo_datelocation;	
+	    		}
+	    		else{
+	    			$dispo['fermer'][] = $planning->plo_datelocation;	
+	    		}
+    		}
+    		
+    	}
+        return view ( 'detail', ["location" =>$location, "calendrier" => Calendar::calendrier(6,$dispo), "diponibilites" => $dispo]);
     }
 }
