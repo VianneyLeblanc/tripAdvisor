@@ -39,7 +39,7 @@ class Calendar
 
 	public function onMonth($date){return $this->getFirstDay()->format('Y-m') == $date->format('Y-m');}
 
-	public static function calendrier($nbMois, $arrayDispo = [null])
+	public static function calendrier($nbMois,$id , $arrayDispo = [null])
 	{
 		$calendrier = "";
 		for ($n=0; $n <$nbMois ; $n++) { 
@@ -54,11 +54,11 @@ class Calendar
 						if ($mounth->getFirstDay()->format('N') == 1){$calculateDay = $mounth->getFirstDay()->modify("+".($k+$i*7)." days");}
 						else{$calculateDay = $mounth->getFirstDay()->modify('last monday')->modify("+".($k+$i*7)." days");}
 						if(!$mounth->onMonth($calculateDay) || $calculateDay < new \DateTime(intval(date('Y')).'-'.intval(date('m')).'-'.intval(date('d')))){$light = "dark";}
-						elseif (in_array($calculateDay->format('Y-m-d'), $arrayDispo['ouvert'])) {
+						elseif (in_array($calculateDay->format('Y-m-d'), $arrayDispo["ouvert"])) {
 							$light = 'green';
-							$calendrier .= "<a onclick='datePicker(\"".$calculateDay->format('d/m/Y')."\")'>";
+							$calendrier .= "<a onclick='datePicker(\"".$calculateDay->format('d/m/Y')."\", ".$id.")'>";
 						}
-						elseif (in_array($calculateDay->format('Y-m-d'), $arrayDispo['fermer'])) {
+						elseif (in_array($calculateDay->format('Y-m-d'), $arrayDispo["fermer"])) {
 							$light = 'red';
 						}
 						else{$light = null;}

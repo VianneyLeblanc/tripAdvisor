@@ -117,23 +117,23 @@
 <div class="major aside">
     <div>
 	<form >
-		<div id="calendarSelector1" class="hidden">
+		<div id="calendarSelector1_{{$location->loc_id}}" class="hidden">
 	    	<span id="previous" class="button" value="<" onclick="previousMonth('calendarSelector1')" data-nb="0">&#160 &lt &#160</span>
-	    	<span class="button" id="next" value=">" onclick="nextMonth('calendarSelector1')" data-nb="1">&#160 &gt &#160</span>
-    	<?php echo \App\Calendar::calendrier(6, $diponibilites) ?>
+	    	<span class="button" id="next" value=">" onclick="nextMonth('calendarSelector1_{{$location->loc_id}}')" data-nb="1">&#160 &gt &#160</span>
+    	<?php echo $calendrier ?>
     </div>
 		<div class="inputDate">
-			<input placeholder="Arriver" type="text" name="dateArrivee" onclick="showCalendarArrive()" value="">
-			<i class="fas fa-calendar-alt internal" onclick="showCalendarArrive()"></i>
+			<input placeholder="Arriver" type="text" name="dateArrivee{{$location->loc_id}}" onclick="showCalendarArrive()" value="">
+			<i class="fas fa-calendar-alt internal" onclick="showCalendarArrive('_'+{{$location->loc_id}})"></i>
 		</div>
 		<div class="inputDate">
-			<input placeholder="Départ" type="text" name="dateDepart" onclick="showCalendarDepart()" value="">
-			<i class="fas fa-calendar-alt internal" onclick="showCalendarDepart()"></i>
+			<input placeholder="Départ" type="text" name="dateDepart{{$location->loc_id}}" onclick="showCalendarDepart()" value="">
+			<i class="fas fa-calendar-alt internal" onclick="showCalendarDepart('_'+{{$location->loc_id}})"></i>
 		</div>
-		<div id="calendarSelector2" class="hidden">
-	    	<span id="previous" class="button" value="<" onclick="previousMonth('calendarSelector2')" data-nb="0">&#160 &lt &#160</span>
-	    	<span class="button" id="next" value=">" onclick="nextMonth('calendarSelector2')" data-nb="1">&#160 &gt &#160</span>
-    	<?php echo \App\Calendar::calendrier(6, $diponibilites) ?>
+		<div id="calendarSelector2_{{$location->loc_id}}" class="hidden">
+	    	<span id="previous" class="button" value="<" onclick="previousMonth('calendarSelector2_{{$location->loc_id}}')" data-nb="0">&#160 &lt &#160</span>
+	    	<span class="button" id="next" value=">" onclick="nextMonth('calendarSelector2_{{$location->loc_id}}')" data-nb="1">&#160 &gt &#160</span>
+    	<?php echo $calendrier ?>
     </div>
 		<input style="margin: 1px;" type="number" name="nbAdultes" min="1" max="99">
 		<input style="margin: 1px;" type="number" name="nbEnfants" min="0" max="99">

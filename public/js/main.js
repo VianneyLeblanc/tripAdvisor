@@ -1,19 +1,19 @@
 
-function datePicker(date) {
-  if (document.getElementById('calendarSelector2').className == 'show') { 
-   document.getElementsByName('dateDepart')[0].value = date;
+function datePicker(date, id) {
+  if (document.getElementById('calendarSelector2_'+id).className == 'show') { 
+   document.getElementsByName('dateDepart'+id)[0].value = date;
   }
   else{
-   document.getElementsByName('dateArrivee')[0].value = date; 
+   document.getElementsByName('dateArrivee'+id)[0].value = date; 
   }
 }
 
-function showCalendarArrive() {
-  document.getElementById('calendarSelector2').className = 'hidden';
-  var div = document.getElementById('calendarSelector1');
+function showCalendarArrive(detail = null) {
+  document.getElementById('calendarSelector2'+detail).className = 'hidden';
+  var div = document.getElementById('calendarSelector1'+detail);
   if (div.className == 'hidden') {
   	div.className = 'show';
-  	document.querySelector('#calendarSelector1 > #mois_'+document.querySelector("#calendarSelector1 > #previous").dataset.nb).style.display = 'contents';	
+  	document.querySelector('#calendarSelector1'+detail+' > #mois_'+document.querySelector("#calendarSelector1"+detail+" > #previous").dataset.nb).style.display = 'contents';	
   }
   else{
   	div.className = 'hidden';	
@@ -21,12 +21,12 @@ function showCalendarArrive() {
   
 }
 
-function showCalendarDepart() {
-  document.getElementById('calendarSelector1').className = 'hidden';
-  var div = document.getElementById('calendarSelector2');
+function showCalendarDepart(detail = null) {
+  document.getElementById('calendarSelector1'+detail).className = 'hidden';
+  var div = document.getElementById('calendarSelector2'+detail);
   if (div.className == 'hidden') {
     div.className = 'show';
-    document.querySelector('#calendarSelector2 > #mois_'+document.querySelector("#calendarSelector2 > #previous").dataset.nb).style.display = 'contents';  
+    document.querySelector('#calendarSelector2'+detail+' > #mois_'+document.querySelector("#calendarSelector2"+detail+" > #previous").dataset.nb).style.display = 'contents';  
   }
   else{
     div.className = 'hidden'; 

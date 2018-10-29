@@ -24,7 +24,7 @@
 <body>
 <header>
     <div id="flag">
-    <img src="https://static.tacdn.com/img2/langs/fr/branding/rebrand/TA_logo_primary.svg" width="50%">
+    <a href="."><img src="https://static.tacdn.com/img2/langs/fr/branding/rebrand/TA_logo_primary.svg" width="50%"></a>
         <div id="dashboard">
             <i class="fas fa-suitcase"></i>
             <i class="far fa-comment-alt"></i>
@@ -36,7 +36,7 @@
     
     <nav class="links navbar-laravel">
         <a id="hotels" href="."><div id="hotels">Hôtels</div></a>
-        <a id="loc" href=""><div id="loc">Location vacances</div></a>
+        <a id="loc" href="."><div id="loc">Location vacances</div></a>
         <a id="vols" href="."><div id="vols">Vols</div></a>
         <a id="restaurants" href="."><div id="restaurants">Restaurants</div></a>
         <a id="activites" href="."><div id="activites">Activités</div></a>
