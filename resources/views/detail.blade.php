@@ -5,23 +5,20 @@
 <nav>
 	<a href="#Vue_ensemble">Vue d'ensemble</a>
 	<a href="#Avis">Avis</a>
-	<a href="">Services</a>
-	<a href="">Disponibilité</a>
-	<a href="">Carte</a>
+	<a href="#Services">Services</a>
+	<a href="#Disponibilité">Disponibilité</a>
+	<a href="#Carte">Carte</a>
 </nav>
-
 <div id="Vue_ensemble" class="major">
 <img src="{{$location->loc_img}}">
 <h1>Vue d'ensemble</h1>
-<label>Logement à louer - {{$location->loc_nbchambres}} chambre, {{$location->loc_nbsallesbain}} salles de bains, {{$location->loc_nboccupants}} couchages</label>
+<label>@if($location->loc_nbchambres == 0) Studio - @else Logement à louer - {{$location->loc_nbchambres}} chambre, @endif  {{$location->loc_nbsallesbain}} salles de bains, {{$location->loc_nboccupants}} couchages</label>
 <p>
 	<label>{{$location->loc_ville}}</label>
 	<label>, {{$location->loc_cp}}</label>
 	<label>, {{$location->loc_etat}}</label>
 </p>
-<a href="#"><i class="far fa-envelope"></i>Envoyer à un ami</a>
 <p>{{$location->loc_detail}}</p>
-
 	<h1>À propos du propriétaire</h1>
 	<hr>
 	<div>
@@ -39,7 +36,7 @@
 			<p>Inscrit depuis : {{(new \DateTime($location->toGerant->grt_dateinscription))->format('d/m/Y')}}</p>
 		</p>
 	</div>
-	<form>
+	<form action="." method="POST">
 		<input type="hidden" name="id_proprio" value="">
 		<input type="submit" name="submit" value="Envoyer un message">
 	</form>
@@ -47,8 +44,17 @@
 <div id="Avis" class="major">
 	<h1 >Avis</h1>
 	<hr>
+	<form action="" method="POST" style="display: inline-flex;">
+		<input type="hidden" name="typeTriAvis" value="typeTriAvis">
+		<label for="TriAvis">Trié par &#160</label>
+		<select id="TriAvis" name="TriAvis" size="1">
+			<option selected>Date</option>
+			<option>Note (croissante)</option>
+			<option>Note (décroissante)</option>
+		</select>
+	</form>
 	@foreach($location->avis as $avis)
-	<article style="display: inline-flex; margin: 5px;">
+	<article style="display: inline-flex; margin: 5px;" data-note="{{$avis->avi_noteglobale}}" data-date="{{$avis->avi_date}}">
 		<div style="margin:10px;text-align: center;display: block;">
 			<img src="https://vignette.wikia.nocookie.net/bungostraydogs/images/1/1e/Profile-icon-9.png" style="
     border-radius: 50%;
@@ -98,36 +104,44 @@
 </div>
 <div id="Regles" class="major">
 	<h1>Règles de l'établissement</h1>
-	
+	<p>Pas de détail disponible</p>
 </div>
 <div id="Toilettes" class="major">
 	<h1>Toilettes</h1>
-	
+	<p>Pas de détail disponible</p>
 </div>
 <div id="Chambres" class="major">
 	<h1>Chambres</h1>
-	
+	<p>Pas de détail disponible</p>
 </div>
 <div id="Disponibilité" class="major">
 	<h1>Disponibilité</h1>
 	<?php echo $calendrier; ?>
 </div>
+<div id="Carte" class="major">
+	<h1>Carte</h1>
+	<div>
+     <iframe width="100%" height="400" frameborder="0" src="https://www.bing.com/maps/embed?h=400&w=500&cp={{$location->loc_latitude}}~{{$location->loc_longitude}}&lvl=13&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
+     </iframe>
+
+</div>
+</div>
 </div>
 
 <div class="major aside">
     <div>
-	<form >
+	<form action="." method="POST">
 		<div id="calendarSelector1_{{$location->loc_id}}" class="hidden">
 	    	<span id="previous" class="button" value="<" onclick="previousMonth('calendarSelector1')" data-nb="0">&#160 &lt &#160</span>
 	    	<span class="button" id="next" value=">" onclick="nextMonth('calendarSelector1_{{$location->loc_id}}')" data-nb="1">&#160 &gt &#160</span>
     	<?php echo $calendrier ?>
     </div>
 		<div class="inputDate">
-			<input placeholder="Arriver" type="text" name="dateArrivee{{$location->loc_id}}" onclick="showCalendarArrive()" value="">
+			<input placeholder="Arriver" type="text" name="dateArrivee{{$location->loc_id}}" onclick="showCalendarArrive()" value="" readonly>
 			<i class="fas fa-calendar-alt internal" onclick="showCalendarArrive('_'+{{$location->loc_id}})"></i>
 		</div>
 		<div class="inputDate">
-			<input placeholder="Départ" type="text" name="dateDepart{{$location->loc_id}}" onclick="showCalendarDepart()" value="">
+			<input placeholder="Départ" type="text" name="dateDepart{{$location->loc_id}}" onclick="showCalendarDepart()" value="" readonly>
 			<i class="fas fa-calendar-alt internal" onclick="showCalendarDepart('_'+{{$location->loc_id}})"></i>
 		</div>
 		<div id="calendarSelector2_{{$location->loc_id}}" class="hidden">
@@ -137,9 +151,15 @@
     </div>
 		<input style="margin: 1px;" type="number" name="nbAdultes" min="1" max="99">
 		<input style="margin: 1px;" type="number" name="nbEnfants" min="0" max="99">
+		<p>Tarif pour 1 nuit</p>
+		@if($tarifMin != null)
+    <p>A partir de {{$tarifMin->tar_prix}}€ / semaine</p>
+    @else
+    <p>Prix non renseigné</p>
+    @endif
 		<input style="margin: 1px;" type="submit" name="submit" value="Réservez">
 	</form>
-	<form>
+	<form action="." method="POST">
 		<input type="submit" name="submit" value="Envoyer un message">
 	</form>
 	</div>

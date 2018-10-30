@@ -14,7 +14,7 @@ class LocationController extends Controller
     {
         $location = [];
         foreach (Location::All() as $value) {
-            $location[] = [$value,$this->dispo($value->loc_id)];
+            $location[] = [$value,$this->dispo($value->loc_id),"tarifMin" => $value->toTarifMin()];
         }
         return view ('welcome',  ["location" => $location]);
     }
@@ -24,7 +24,6 @@ class LocationController extends Controller
     	$location = [];
     	foreach (Location::All() as $key => $value) 
     		{
-
     			if (levenshtein($value->loc_ville, $request->input('ville')) < 10 )
     			{
     				$location[] = [ $value,$this->dispo($value->loc_id)];
@@ -53,6 +52,6 @@ class LocationController extends Controller
     {
     	$location = Location::Find($id);
     	$dispo = $this->dispo($id);
-        return view ( 'detail', ["location" =>$location, "calendrier" => Calendar::calendrier(6,$id ,$dispo), "diponibilites" => $dispo]);
+        return view ( 'detail', ["location" =>$location, "calendrier" => Calendar::calendrier(6,$id ,$dispo), "diponibilites" => $dispo, "tarifMin" => $location->toTarifMin()]);
     }
 }

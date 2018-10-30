@@ -43,12 +43,32 @@
         <a id="menu" href="."><i class="fas fa-bars"></i></a>
     </nav>
     <form method="post" action="{{ url('/location/searchResult') }}">
-  <input type="hidden" name="_token" value="{{ csrf_token() }}" >
-  <p>
-    <label for="ville">Ville recherchée</label>
-    <input type="text" name="ville">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}" >
+    <div style="display: flex;">
+        <div>
+            <label for="ville">Ville recherchée</label>
+            <input type="text" name="ville">
+        </div>
+        <div class="inputDate" style="display: inline-block; margin-left: 3px;">
+            <input placeholder="Arriver" type="text" name="dateArrivee0" onclick="showCalendarArrive('_0')" value="" readonly>
+            <i class="fas fa-calendar-alt internal" onclick="showCalendarArrive('_0')"></i>
+            <div id="calendarSelector1_0" class="hidden" style="margin-top: 15px;">
+            <span id="previous" class="button" value="<" onclick="previousMonth('calendarSelector1_0')" data-nb="0">&#160 &lt &#160</span>
+            <span class="button" id="next" value=">" onclick="nextMonth('calendarSelector1_0')" data-nb="1">&#160 &gt &#160</span>
+            <?php echo \App\Calendar::calendrier(6,0); ?>
+            </div>
+        </div>
+        <div class="inputDate" style="display: inline-block;">
+            <input placeholder="Départ" type="text" name="dateDepart0" onclick="showCalendarDepart('_0')" value="" readonly>
+            <i class="fas fa-calendar-alt internal" onclick="showCalendarDepart('_0')"></i>
+            <div id="calendarSelector2_0" class="hidden">
+            <span id="previous" class="button" value="<" onclick="previousMonth('calendarSelector2_0')" data-nb="0">&#160 &lt &#160</span>
+            <span class="button" id="next" value=">" onclick="nextMonth('calendarSelector2_0')" data-nb="1">&#160 &gt &#160</span>
+            <?php echo \App\Calendar::calendrier(6,0); ?>
+            </div>
+        </div>
     <button type="submit" class="" value="rechercher" ><i class="fas fa-search"></i></button>
-  </p>
+  </div>
 </form>
 </header>
     <div class="container">@yield('content')</div>
