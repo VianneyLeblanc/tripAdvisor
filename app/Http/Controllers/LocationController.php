@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Location;
-use App\Calendar;
-use App\PlanningLocation;
+use App;
 
 class LocationController extends Controller
 {
@@ -13,7 +11,7 @@ class LocationController extends Controller
     public function home()
     {
         $location = [];
-        foreach (Location::All() as $value) {
+        foreach (\Location::All() as $value) {
             $location[] = [$value,$this->dispo($value->loc_id),"tarifMin" => $value->toTarifMin()];
         }
         return view ('welcome',  ["location" => $location]);
@@ -22,7 +20,7 @@ class LocationController extends Controller
     public function searchResult(Request $request)
     {
     	$location = [];
-    	foreach (Location::All() as $key => $value) 
+    	foreach (\Location::All() as $key => $value) 
     		{
     			if (levenshtein($value->loc_ville, $request->input('ville')) < 10 )
     			{
@@ -33,7 +31,7 @@ class LocationController extends Controller
     }
     private function dispo(int $id)
     {
-        $disponibilite = PlanningLocation::All();
+        $disponibilite = \PlanningLocation::All();
         $dispo = ['ouvert'=>[null], 'fermer'=>[null]];
         foreach ($disponibilite as $key => $planning) {
             if($planning->loc_id == $id){
@@ -50,8 +48,8 @@ class LocationController extends Controller
     }
     public function detail(int $id)
     {
-    	$location = Location::Find($id);
+    	$location = \Location::Find($id);
     	$dispo = $this->dispo($id);
-        return view ( 'detail', ["location" =>$location, "calendrier" => Calendar::calendrier(6,$id ,$dispo), "diponibilites" => $dispo, "tarifMin" => $location->toTarifMin()]);
+        return view ( 'detail', ["location" =>$location, "calendrier" => \Calendar::calendrier(6,$id ,$dispo), "diponibilites" => $dispo, "tarifMin" => $location->toTarifMin()]);
     }
 }
