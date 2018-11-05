@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Location;
-use App\PlanningLocation;
 use App\Calendar;
+use App\PlanningLocation;
 
 class LocationController extends Controller
 {

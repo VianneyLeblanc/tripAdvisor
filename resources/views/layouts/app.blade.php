@@ -42,6 +42,10 @@
         <a id="activites" href="."><div id="activites">Activités</div></a>
         <a id="menu" href="."><i class="fas fa-bars"></i></a>
     </nav>
+    <div style="display: inline-block;">
+        <a href="./login">Login</a>
+        <a href="./register">Register</a>
+    </div>
     <form method="post" action="{{ url('/location/searchResult') }}">
     <input type="hidden" name="_token" value="{{ csrf_token() }}" >
     <div style="display: flex;">

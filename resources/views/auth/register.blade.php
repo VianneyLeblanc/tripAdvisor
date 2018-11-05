@@ -68,6 +68,12 @@
                                 </button>
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <a class="btn btn-link" href="./login">
+                                    {{ __('Sign in with existing account') }}
+                            </a>
+                        </div>
                     </form>
                 </div>
             </div>
